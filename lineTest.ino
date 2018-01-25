@@ -40,11 +40,11 @@ if(!digitalRead(LS))&& digitalRead(RS))
 if(digitalRead(LS1)&& !(digitalRead(RS1))) 
 { 
   analogWrite(pwm1, 190); 
-  digitalWrite(M1F, LOW); 
-  digitalWrite(M1R, HIGH); 
+  digitalWrite(M1F, HIGH); 
+  digitalWrite(M1R, LOW); 
   analogWrite(pwm3, 205); 
-  digitalWrite(M3F, LOW); 
-  digitalWrite(M3R, HIGH); 
+  digitalWrite(M3F, HIGH); 
+  digitalWrite(M3R, LOW); 
   analogWrite(pwm2, 210); 
   digitalWrite(M2F, HIGH); 
   digitalWrite(M2R, LOW); 
