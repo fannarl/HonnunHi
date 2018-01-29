@@ -102,6 +102,7 @@ void loop()
     digitalWrite(M4R, LOW);
   }
 
+//adjust right
   if(digitalRead(RS1) && !(digitalRead(LS1)))
   {
     analogWrite(pwm1, 110); 
@@ -169,14 +170,32 @@ void loop()
       digitalWrite(M1R, LOW); 
       analogWrite(pwm3, 110); 
       digitalWrite(M3F, LOW); 
-      digitalWrite(M3R, HIGH);
+      digitalWrite(M3R, LOW);
       analogWrite(pwm2, 110);
       digitalWrite(M2F, LOW);
       digitalWrite(M2R, HIGH); 
       analogWrite(pwm4, 110);
       digitalWrite(M4F, LOW); 
+      digitalWrite(M4R, LOW);
+    }
+
+  //left(adjust Right)
+  else if((digitalRead(RS2)) || !(digitalRead(LS2))) && !(digitalRead(RS1) || digitalRead(LS1)))
+    {
+      analogWrite(pwm1, 110); 
+      digitalWrite(M1F, LOW); 
+      digitalWrite(M1R, LOW); 
+      analogWrite(pwm3, 110); 
+      digitalWrite(M3F, LOW); 
+      digitalWrite(M3R, HIGH);
+      analogWrite(pwm2, 110);
+      digitalWrite(M2F, LOW);
+      digitalWrite(M2R, LOW); 
+      analogWrite(pwm4, 110);
+      digitalWrite(M4F, LOW); 
       digitalWrite(M4R, HIGH);
-  }
+    }
+  
   delay(500);
   analogWrite(pwm1, 70); 
   analogWrite(pwm2, 70); 
