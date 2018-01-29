@@ -33,6 +33,10 @@ const int M4R = 45 ; // Motor
   const in LS1 = 26
 //2x Áfram 25 og 26 
 
+const int RS2 = ?
+const int LS2 = ?
+
+
 void setup()
 {
   
@@ -133,24 +137,46 @@ void loop()
   delay(1000);
   
   // Robit keyrir til hægri
- /*
+ 
   myservo1.write(88);
   myservo2.write(77);
   myservo3.write(88);
   myservo4.write(85);
   delay(1000);
-  analogWrite(pwm1, 110); 
-  digitalWrite(M1F, HIGH); 
-  digitalWrite(M1R, LOW); 
-  analogWrite(pwm3, 110); 
-  digitalWrite(M3F, LOW); 
-  digitalWrite(M3R, HIGH);
-  analogWrite(pwm2, 110);
-  digitalWrite(M2F, LOW);
-  digitalWrite(M2R, HIGH); 
-  analogWrite(pwm4, 110);
-  digitalWrite(M4F, LOW); 
-  digitalWrite(M4R, HIGH);
+
+  // Left
+  else if((digitalRead(RS2) || digitalRead(LS2)) && !(digitalRead(RS1) || digitalRead(LS1)))
+  {
+    analogWrite(pwm1, 110); 
+    digitalWrite(M1F, HIGH); 
+    digitalWrite(M1R, LOW); 
+    analogWrite(pwm3, 110); 
+    digitalWrite(M3F, LOW); 
+    digitalWrite(M3R, HIGH);
+    analogWrite(pwm2, 110);
+    digitalWrite(M2F, LOW);
+    digitalWrite(M2R, HIGH); 
+    analogWrite(pwm4, 110);
+    digitalWrite(M4F, LOW); 
+    digitalWrite(M4R, HIGH);
+  }
+
+  //left(adjust left)
+  else if((!(digitalRead(RS2)) || digitalRead(LS2)) && !(digitalRead(RS1) || digitalRead(LS1)))
+    {
+      analogWrite(pwm1, 110); 
+      digitalWrite(M1F, HIGH); 
+      digitalWrite(M1R, LOW); 
+      analogWrite(pwm3, 110); 
+      digitalWrite(M3F, LOW); 
+      digitalWrite(M3R, HIGH);
+      analogWrite(pwm2, 110);
+      digitalWrite(M2F, LOW);
+      digitalWrite(M2R, HIGH); 
+      analogWrite(pwm4, 110);
+      digitalWrite(M4F, LOW); 
+      digitalWrite(M4R, HIGH);
+  }
   delay(500);
   analogWrite(pwm1, 70); 
   analogWrite(pwm2, 70); 
@@ -158,7 +184,7 @@ void loop()
   analogWrite(pwm4, 70); 
   delay(4000); 
   
-  */
+  
   
   //Stop
   digitalWrite(M1F, HIGH); 
