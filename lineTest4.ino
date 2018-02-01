@@ -119,32 +119,54 @@ void loop() {
       }
     }
   }
+
+  //hægri
+  if((left1 == 0 || right1 == 0) && (left2 == 0 || right2 == 1))
+  {
+      while(0){
+      if((Left2 == 0 && Right2 == 0) ==0){
+      Forward = true;
+      FORWARD();
+      }
+      else if((Left2 == 1 && Right2 == 0) == 0){
+      Left = true;
+      LEFT();
+      }
+      else if((Right2 == 1 && Left2 == 0) == 0){
+      Right = true;
+      RIGHT();
+      }
+    }    
+  }
 }
 
 void FORWARD (void){
   do{
-      stepper1.step(1);
-      stepper2.step(1);
-      stepper3.step(1);
-      stepper4.step(1);
+      stepper1.moveTo(1000000);
+      stepper2.moveTo(1000000);
+      stepper3.moveTo(1000000);
+      stepper4.moveTo(1000000);
   }
   while(Forward == true);
 }
 void LEFT (void){
   do{
-    stepper1.step(1);
-    stepper2.step(1);    
+    stepper1.moveTo(1000000);
+    stepper2.moveTo(1000000);    
   }
   while(Left == true);
 }
 void RIGHT (void){
   do{
-    stepper3.step(1);
-    stepper4.step(1);    
+    stepper3.moveTo(1000000);
+    stepper4.moveTo(1000000);    
   }
-  while(Right == true)
+  while(Right == true);
 }
 void STOP (void){
-  
+      stepper1.stop();
+      stepper2.stop();
+      stepper3.stop();
+      stepper4.stop();  
 }
 
