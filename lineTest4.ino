@@ -1,5 +1,6 @@
 #include <AccelStepper.h>
 #include <MultiStepper.h>
+#include <Stepper.h>
 #include <Servo.h>
 
 #define HALF4WIRE 8
@@ -22,6 +23,11 @@ void FORWARD(void);
 void LEFT(void);
 void RIGHT(void);
 void STOP(void);
+
+bool Forward = false;
+bool Left = false;
+bool Right = false;
+bool Stop = false;
 
 //servos
 Servo myservo1 ;
@@ -67,10 +73,10 @@ int Right3 = digitalRead(right3);
 //
 
 void setup() {
-  stepper1.setMaxSpeed(1200.0);
+ /* stepper1.setMaxSpeed(1200.0);
   stepper1.setAcceleration(100.0);
   stepper1.setSpeed(100);
-  stepper1.moveTo(12000); // 250 full rotations @ 48 steps each = 12000 steps
+  stepper1.moveTo(12000); // 250 full rotations @ 48 steps each = 12000 steps */
 
   myservo1.attach(52);
   myservo2.attach(24);
@@ -81,36 +87,62 @@ void setup() {
 void loop() {
 
   while(0){
-    if((Left1 == 0 && Right1 == 0) ==0)
+    if((Left1 == 0 && Right1 == 0) ==0){
+    Forward = true;
     FORWARD();
-    else if((Left1 == 1 && Right1 == 0) == 0)
+    }
+    else if((Left1 == 1 && Right1 == 0) == 0){
+    Left = true;
     LEFT();
-    else if((Right1 == 1 && Left1 == 0) == 0)
+    }
+    else if((Right1 == 1 && Left1 == 0) == 0){
+    Right = true;
     RIGHT();
+    }
   }
 
   //Vinstri
   if((left1 == 0 || right1 == 0) && (left3 == 0 || right3 == 1))
   {      
       while(0){
-      if((Left3 == 0 && Right3 == 0) ==0)
+      if((Left3 == 0 && Right3 == 0) ==0){
+      Forward = true;
       FORWARD();
-      else if((Left3 == 1 && Right3 == 0) == 0)
+      }
+      else if((Left3 == 1 && Right3 == 0) == 0){
+      Left = true;
       LEFT();
-      else if((Right3 == 1 && Left3 == 0) == 0)
+      }
+      else if((Right3 == 1 && Left3 == 0) == 0){
+      Right = true;
       RIGHT();
+      }
     }
   }
 }
 
 void FORWARD (void){
-  
+  do{
+      stepper1.step(1);
+      stepper2.step(1);
+      stepper3.step(1);
+      stepper4.step(1);
+  }
+  while(Forward == true);
 }
 void LEFT (void){
-  
+  do{
+    stepper1.step(1);
+    stepper2.step(1);    
+  }
+  while(Left == true);
 }
 void RIGHT (void){
-  
+  do{
+    stepper3.step(1);
+    stepper4.step(1);    
+  }
+  while(Right == true)
 }
 void STOP (void){
   
