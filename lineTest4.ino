@@ -83,9 +83,9 @@ void loop() {
   while(0){
     if((Left1 == 0 && Right1 == 0) ==0)
     FORWARD();
-    else if((Left1 == 1 && Right1 == 0) == 1)
+    else if((Left1 == 1 && Right1 == 0) == 0)
     LEFT();
-    else if((Right1 == 1 && Left1 == 0) == 1)
+    else if((Right1 == 1 && Left1 == 0) == 0)
     RIGHT();
   }
 
@@ -95,9 +95,9 @@ void loop() {
       while(0){
       if((Left3 == 0 && Right3 == 0) ==0)
       FORWARD();
-      else if((Left3 == 1 && Right3 == 0) == 1)
+      else if((Left3 == 1 && Right3 == 0) == 0)
       LEFT();
-      else if((Right3 == 1 && Left3 == 0) == 1)
+      else if((Right3 == 1 && Left3 == 0) == 0)
       RIGHT();
     }
   }
