@@ -7,14 +7,14 @@
 
 
 //áfram skynjari
-const int right1 = 45;
-const int left1 = 46;
+const int right1 = 50;
+const int left1 = 51;
 //hægri skynjari
-const int right2 = 47;
-const int left2 = 48;
+const int right2 = 46;
+const int left2 = 47;
 //vinstri skynjari
-const int right3 = 49;
-const int left3 = 50;
+const int right3 = 48;
+const int left3 = 49;
 
 //rofi
 const int button = 51;
@@ -38,25 +38,25 @@ Servo myservo4 ;
 
 //motor shit
 //stepper1
-#define motorPin1  25
-#define motorPin2  26
-#define motorPin3  27
-#define motorPin4  28
+#define motorPin1  45
+#define motorPin2  44
+#define motorPin3  43
+#define motorPin4  42
 //stepper2
-#define motorPin5  29
-#define motorPin6  30
-#define motorPin7  31
-#define motorPin8  32
+#define motorPin5  41
+#define motorPin6  40
+#define motorPin7  39
+#define motorPin8  38
 //stepper3
-#define motorPin9  33
-#define motorPin10  34
+#define motorPin9  37
+#define motorPin10  36
 #define motorPin11  35
-#define motorPin12  36
+#define motorPin12  34
 //stepper4
-#define motorPin13  37
-#define motorPin14  38
-#define motorPin15  39
-#define motorPin16  40
+#define motorPin13  33
+#define motorPin14  32
+#define motorPin15  31
+#define motorPin16  30
 
 AccelStepper stepper1 (HALF4WIRE, motorPin1, motorPin2, motorPin3, motorPin4, true);
 AccelStepper stepper2 (HALF4WIRE, motorPin5, motorPin6, motorPin7, motorPin8, true);
@@ -81,7 +81,7 @@ void setup() {
   myservo1.attach(52);
   myservo2.attach(24);
   myservo3.attach(53);
-  myservo4.attach(23);
+  myservo4.attach(25);
 }
 
 void loop() {
